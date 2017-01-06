@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'JMMaskTextField_Example' do
+  pod 'JMMaskTextField', :path => '../'
+
+  target 'JMMaskTextField_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
