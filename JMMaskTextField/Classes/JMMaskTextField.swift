@@ -27,7 +27,7 @@ public class JMMaskTextField: UITextField {
     
     public var unmaskedText: String? {
         get {
-            return self.stringMask?.mask(string: self.text) ?? self.text
+            return self.stringMask?.unmask(string: self.text) ?? self.text
         }
     }
     
