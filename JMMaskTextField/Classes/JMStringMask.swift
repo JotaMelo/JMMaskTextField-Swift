@@ -33,15 +33,15 @@ public struct JMStringMask: Equatable {
         
         guard let string = string else { return nil }
 
-        if string.characters.count > self.mask.characters.count {
+        if string.count > self.mask.count {
             return nil
         }
         
         var formattedString = ""
         
         var currentMaskIndex = 0
-        for i in 0..<string.characters.count {
-            if currentMaskIndex >= self.mask.characters.count {
+        for i in 0..<string.count {
+            if currentMaskIndex >= self.mask.count {
                 return nil
             }
             
@@ -79,7 +79,7 @@ public struct JMStringMask: Equatable {
         guard let string = string else { return nil }
         var unmaskedValue = ""
         
-        for character in string.characters {
+        for character in string {
             if self.isValidLetterCharacter(character) || self.isValidNumberCharacter(character) {
                 unmaskedValue.append(character)
             }
