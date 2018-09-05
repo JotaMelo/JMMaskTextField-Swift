@@ -74,7 +74,7 @@ func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange
     let maskTextField = textField as! JMMaskTextField
     guard let unmaskedText = maskTextField.stringMask?.unmask(string: newText) else { return true }
     
-    if unmaskedText.characters.count >= 11 {
+    if unmaskedText.count >= 11 {
         maskTextField.maskString = "(00) 0 0000-0000"
     } else {
         maskTextField.maskString = "(00) 0000-0000"
