@@ -8,13 +8,13 @@
 
 import UIKit
 
-public class JMMaskTextField: UITextField {
+open class JMMaskTextField: UITextField {
 
     // damn, maskView is just mask in Swift
     public private(set) var stringMask: JMStringMask?
     fileprivate weak var realDelegate: UITextFieldDelegate?
     
-    override weak public var delegate: UITextFieldDelegate? {
+    override weak open var delegate: UITextFieldDelegate? {
         get {
             return self.realDelegate
         }
@@ -31,7 +31,7 @@ public class JMMaskTextField: UITextField {
         }
     }
     
-    @IBInspectable public var maskString: String? {
+    @IBInspectable open var maskString: String? {
         didSet {
             guard let maskString = self.maskString else { return }
             self.stringMask = JMStringMask(mask: maskString)
@@ -50,7 +50,7 @@ public class JMMaskTextField: UITextField {
         self.commonInit()
     }
     
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         
         self.commonInit()
