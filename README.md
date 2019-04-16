@@ -12,6 +12,7 @@ I never found anything that simple on iOS. Some libs required you to write a reg
 ```JMMaskTextField``` allows you to mask your ```UITextField``` by simply setting a mask pattern string. Mask characters are:
 * `A` for letters
 * `0` for numbers
+* `*` for numbers and letters
 
 So for a Brazilian license plate, which has 3 letters, a dash and then 4 numbers, the mask would be: ```AAA-0000```.
 

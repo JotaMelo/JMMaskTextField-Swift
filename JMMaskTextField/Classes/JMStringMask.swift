@@ -11,6 +11,7 @@ import Foundation
 fileprivate struct Constants {
     static let letterMaskCharacter: Character = "A"
     static let numberMaskCharacter: Character = "0"
+    static let alphanumericMaskCharacter: Character = "*"
 }
 
 public struct JMStringMask: Equatable {
@@ -51,18 +52,22 @@ public struct JMStringMask: Equatable {
             if currentCharacter == maskCharacter {
                 formattedString.append(currentCharacter)
             } else {
-                while (maskCharacter != Constants.letterMaskCharacter && maskCharacter != Constants.numberMaskCharacter) {
+                while (maskCharacter != Constants.letterMaskCharacter
+                    && maskCharacter != Constants.numberMaskCharacter
+                    && maskCharacter != Constants.alphanumericMaskCharacter) {
                     formattedString.append(maskCharacter)
                     
                     currentMaskIndex += 1
                     maskCharacter = self.mask[self.mask.index(string.startIndex, offsetBy: currentMaskIndex)]
                 }
                 
-                let isValidLetter = maskCharacter == Constants.letterMaskCharacter && self.isValidLetterCharacter(currentCharacter)
-                let isValidNumber = maskCharacter == Constants.numberMaskCharacter && self.isValidNumberCharacter(currentCharacter)
-                
-                if !isValidLetter && !isValidNumber {
-                    return nil
+                if maskCharacter != Constants.alphanumericMaskCharacter {
+                    let isValidLetter = maskCharacter == Constants.letterMaskCharacter && self.isValidLetterCharacter(currentCharacter)
+                    let isValidNumber = maskCharacter == Constants.numberMaskCharacter && self.isValidNumberCharacter(currentCharacter)
+                    
+                    if !isValidLetter && !isValidNumber {
+                        return nil
+                    }
                 }
                 
                 formattedString.append(currentCharacter)
