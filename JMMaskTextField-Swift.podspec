@@ -14,7 +14,8 @@ s.author           = { 'Jota Melo' => 'jpmfagundes@gmail.com' }
 s.source           = { :git => 'https://github.com/JotaMelo/JMMaskTextField-Swift.git', :tag => s.version.to_s }
 s.social_media_url = 'https://twitter.com/Jota'
 
-s.ios.deployment_target = '8.0'
+s.swift_version = "5.3"
+s.ios.deployment_target = '9.0'
 
-s.source_files = 'JMMaskTextField/Classes/**/*'
+s.source_files = 'Sources/**/*'
 end
